@@ -7,12 +7,12 @@ This package provides decorators to profile memory usage for both synchronous an
 To install this package, run:
 
 ```bash
-npm install memory-profiler
+npm install @mahabub-arafat/memory-profiler
 ```
 
 Then import by doing this : 
 ```JS
-import { ProfileAllMethods } from 'memory-profiler';
+import { ProfileAllMethods } from '@mahabub-arafat/memory-profiler';
 ```
 
 Add then edit the key in your .env file : 
