@@ -1,6 +1,6 @@
 {
   "name": "@mahabub-arafat/memory-profiler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A memory profiling tool for NestJS services.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
