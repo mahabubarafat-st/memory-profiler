@@ -1,0 +1,31 @@
+{
+  "name": "memory-profiler",
+  "version": "1.0.0",
+  "description": "A memory profiling tool for NestJS services.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "Mahabub Arafat",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mahabubarafat-st/memory-profiler.git"
+  },
+  "dependencies": {
+    "pino": "^8.0.0",
+    "pino-pretty": "^8.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.7",
+    "typescript": "^4.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
