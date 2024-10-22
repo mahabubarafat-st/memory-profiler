@@ -1,5 +1,5 @@
 import pino from 'pino';
-import { MemoryUsageResult, AsyncFunction, SyncFunction } from './types';
+import { AsyncFunction, SyncFunction } from './types';
 
 // Logger instance
 const logger = pino({
@@ -36,14 +36,7 @@ export function logMemoryUsageAsync(fn: AsyncFunction): AsyncFunction {
         const executionTime = Date.now() - startTime;
         const memoryConsumed = finalMemoryUsage - initialMemoryUsage;
 
-        const memoryUsage: MemoryUsageResult = {
-            startMemory: initialMemoryUsage,
-            endMemory: finalMemoryUsage,
-            memoryConsumed,
-            executionTime,
-        };
-
-        logger.info(memoryUsage, `Async function ${fn.name} executed`);
+        logger.warn(` Async -> Function: ${fn.name}, startMemory: ${initialMemoryUsage}, endMemory: ${finalMemoryUsage}, memoryConsumed: ${memoryConsumed.toFixed(2)}, executionTime : ${executionTime} ms`);
         return result;
     };
 }
@@ -60,14 +53,7 @@ export function logMemoryUsageSync(fn: SyncFunction): SyncFunction {
         const executionTime = Date.now() - startTime;
         const memoryConsumed = finalMemoryUsage - initialMemoryUsage;
 
-        const memoryUsage: MemoryUsageResult = {
-            startMemory: initialMemoryUsage,
-            endMemory: finalMemoryUsage,
-            memoryConsumed,
-            executionTime,
-        };
-
-        logger.info(memoryUsage, `Sync function ${fn.name} executed`);
+        logger.info(` Async -> Function: ${fn.name}, startMemory: ${initialMemoryUsage}, endMemory: ${finalMemoryUsage}, memoryConsumed: ${memoryConsumed.toFixed(2)}, executionTime : ${executionTime} ms`);
         return result;
     };
 }

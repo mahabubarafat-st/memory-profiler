@@ -1,7 +1,7 @@
 import { logMemoryUsageAsync, logMemoryUsageSync, isMemoryProfilingEnabled } from './utilities';
 import { SyncFunction, AsyncFunction } from './types';
 
-// Decorator for profiling all methods in a class
+// Decorator for profiling all methods in a service
 export function ProfileAllMethods(): ClassDecorator {
     return function (constructor: Function): void {
         if (isMemoryProfilingEnabled()) {
@@ -36,16 +36,32 @@ export function ProfileAllMethods(): ClassDecorator {
     };
 }
 
-// Decorator for profiling a single method
-export function ProfileMemory(): MethodDecorator {
-    return function (target: any, propertyKey: string | symbol, descriptor: PropertyDescriptor): PropertyDescriptor {
+// for a single sync Function
+export function ProfileMemorySyncFunction() {
+    return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+        // Only apply profiling if enabled
         if (isMemoryProfilingEnabled()) {
-            const originalMethod: SyncFunction | AsyncFunction = descriptor.value;
-            descriptor.value = async function (...args: any[]): Promise<any> {
-                const result = await logMemoryUsageSync(originalMethod).apply(this, args);
-                return result;
-            };
+            const originalMethod = descriptor.value;
+
+            // Wrap the original method with memory profiling
+            descriptor.value = logMemoryUsageSync(originalMethod);
         }
+
+        return descriptor;
+    };
+}
+
+// for a single async Function
+export function ProfileMemoryAsyncFunction() {
+    return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+        // Only apply profiling if enabled
+        if (isMemoryProfilingEnabled()) {
+            const originalMethod = descriptor.value;
+
+            // Wrap the original method with memory profiling
+            descriptor.value = logMemoryUsageAsync(originalMethod);
+        }
+
         return descriptor;
     };
 }

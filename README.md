@@ -12,10 +12,20 @@ npm install @mahabub-arafat/memory-profiler
 
 Then import by doing this : 
 ```JS
-import { ProfileAllMethods } from '@mahabub-arafat/memory-profiler';
+import { ProfileAllMethods, ProfileMemorySyncFunction, ProfileMemoryAsyncFunction } from '@mahabub-arafat/memory-profiler';
 ```
 
 Add then edit the key in your .env file : 
 ```
 ENABLE_MEMORY_PROFILING_DECORATOR=true
 ```
+
+Usage : 
+```JS
+@Injectable()
+@ProfileAllMethods()
+export class FlightSearchService {}
+```
+
+Example Outcome: 
+![Screenshot of Terminal](./resources//2024-10-22_10-57.png)
