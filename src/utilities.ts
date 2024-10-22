@@ -1,3 +1,5 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
 import pino from 'pino';
 import { AsyncFunction, SyncFunction } from './types';
 
