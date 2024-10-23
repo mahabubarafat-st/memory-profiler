@@ -55,6 +55,8 @@ When this service's methods are executed, the memory consumption will be logged 
 INFO [2024-10-23 10:51:53.710 +0600] (776639 on st):  Async -> Function: getAvailableFlights, startMemory: 45.57MB, endMemory: 44.62MB, memoryConsumed: -0.95MB, executionTime : 2450 ms
 WARN [2024-10-23 10:52:21.261 +0600] (776639 on st):  Async -> Function: timedoutSearch, startMemory: 42.17MB, endMemory: 36.15MB, memoryConsumed: -6.02MB, executionTime : 30000 ms
 ```
+Terminal Output: 
+![Terminal Output](./resources/2024-10-22_10-57.png)
 
 ## Usage
 

@@ -1,6 +1,6 @@
 {
   "name": "@mahabub-arafat/memory-profiler",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "A memory profiling tool for NestJS services.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -15,9 +15,9 @@
     "url": "git+https://github.com/mahabubarafat-st/memory-profiler.git"
   },
   "dependencies": {
-    "dotenv": "^16.4.5",
-    "pino": "^8.0.0",
-    "pino-pretty": "^8.0.0"
+    "dotenv": "16.4.5",
+    "pino": "8.0.0",
+    "pino-pretty": "8.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.7.7",
