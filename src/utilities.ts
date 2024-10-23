@@ -55,7 +55,7 @@ export function logMemoryUsageSync(fn: SyncFunction): SyncFunction {
         const executionTime = Date.now() - startTime;
         const memoryConsumed = finalMemoryUsage - initialMemoryUsage;
 
-        logger.info(` Async -> Function: ${fn.name}, startMemory: ${initialMemoryUsage}, endMemory: ${finalMemoryUsage}, memoryConsumed: ${memoryConsumed.toFixed(2)}, executionTime : ${executionTime} ms`);
+        logger.info(` Sync -> Function: ${fn.name}, startMemory: ${initialMemoryUsage}, endMemory: ${finalMemoryUsage}, memoryConsumed: ${memoryConsumed.toFixed(2)}, executionTime : ${executionTime} ms`);
         return result;
     };
 }
